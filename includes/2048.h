@@ -1,7 +1,20 @@
+#ifndef G2048_H
+# define G2048_H
 
+#include <ncurses.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 
-#ifndef 2048_H
-# define 2048_H
+typedef struct s_window
+{
+    int value;
+    int height;
+	int width;
+	WINDOW *ptr;
+} t_window;
+
 
 /* ----- main.c ----- */
 
