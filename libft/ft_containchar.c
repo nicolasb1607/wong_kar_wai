@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_contain.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 11:28:52 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/03/19 11:29:24 by nburat-d         ###   ########.fr       */
+/*   Created: 2022/02/25 11:29:13 by nburat-d          #+#    #+#             */
+/*   Updated: 2022/02/25 11:39:48 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void)
+#include "libft.h"
+
+/*
+Check if there is the specific charactere into the string
+
+1. The charactere to look for
+2. The string to look into.
+*/
+int	ft_containchar(char c, char *str)
 {
-    return (0);
+	int	i; 
+	
+	i = -1;
+	while (str[++i])
+		if (str[i] == c)
+			return (1);
+	return (0);
 }

@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 11:28:52 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/03/19 11:29:24 by nburat-d         ###   ########.fr       */
+/*   Created: 2021/10/20 17:38:35 by nburat-d          #+#    #+#             */
+/*   Updated: 2021/11/25 13:43:15 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void)
+#include "libft.h"
+
+/*
+The  memset()  function  fills  the  first  n  bytes of the memory area
+pointed to by s with the constant byte c.
+
+The memset() function returns a pointer to the memory area s.
+*/
+void	*ft_memset(void *s, int c, size_t n)
 {
-    return (0);
+	unsigned char	*ptr;
+
+	ptr = s;
+	while (n-- > 0)
+		*ptr++ = c;
+	return (s);
 }

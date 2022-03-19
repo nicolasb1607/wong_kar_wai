@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 11:28:52 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/03/19 11:29:24 by nburat-d         ###   ########.fr       */
+/*   Created: 2021/10/28 17:27:52 by nburat-d          #+#    #+#             */
+/*   Updated: 2021/12/01 08:42:58 by nburat-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void)
+#include "libft.h"
+
+/*Renvoie le dernier élément de la liste.
+
+#1. Le début de la liste.*/
+t_list	*ft_lstlast(t_list *lst)
 {
-    return (0);
+	t_list	*current;
+
+	current = lst;
+	if (current == NULL)
+		return (NULL);
+	while (current->next != NULL)
+		current = current->next;
+	return (current);
 }
