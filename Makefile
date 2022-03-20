@@ -4,6 +4,17 @@ INCLUDES = includes/
 EXEC = 2048
 SRCS = ./main.c \
 	./srcs/init.c \
+	./srcs/add_random_title.c \
+	./srcs/check_end_game.c \
+	./srcs/check_move/check_down_move.c \
+	./srcs/check_move/check_up_move.c \
+	./srcs/check_move/check_left_move.c \
+	./srcs/check_move/check_right_move.c \
+	./srcs/do_move/do_move.c \
+	./srcs/do_move/do_down_move.c \
+	./srcs/do_move/do_up_move.c \
+	./srcs/do_move/do_left_move.c \
+	./srcs/do_move/do_right_move.c \
 
 OBJS =${SRCS:.c=.o}
 
