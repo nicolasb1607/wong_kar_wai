@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 11:28:52 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/03/20 16:44:12 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:19:31 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,35 @@ int main(void)
 {
 	t_window tab[4][4];
 	//t_windows tab[4][4] = {{0, 2 ,0 ,0},{0, 0 ,0 ,0}, {4, 0, 0, 0}, {0, 0, 0, 0}};
-	tab[0][0].value = 4;
+	tab[0][0].value = 2;
 	tab[0][1].value = 2;
 	tab[0][2].value = 4;
 	tab[0][3].value = 2;
 
-	tab[1][0].value = 4;
+	tab[1][0].value = 2;
 	tab[1][1].value = 2;
 	tab[1][2].value = 0;
 	tab[1][3].value = 0;
 
-	tab[2][0].value = 4;
+	tab[2][0].value = 0;
 	tab[2][1].value = 0;
 	tab[2][2].value = 0;
 	tab[2][3].value = 0;
 
-	tab[3][0].value = 4;
+	tab[3][0].value = 0;
 	tab[3][1].value = 0;
 	tab[3][2].value = 0;
 	tab[3][3].value = 0;
 
 	print_tab(tab);
 	printf("---------------------------------------------\n");
-	move_tiles(tab, MOVE_UP);
+	move_tiles(tab, MOVE_RIGHT);
+	print_tab(tab);
+	 printf("---------------------------------------------\n");
+	 move_tiles(tab, MOVE_RIGHT);
+	 print_tab(tab);
+	 printf("---------------------------------------------\n");	
+
 	
 /*	print_tab(tab);
 	move_tiles(tab, MOVE_UP);

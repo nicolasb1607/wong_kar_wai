@@ -17,7 +17,6 @@ void	do_fusion_left(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int line)
 		}
 		col++;
 	}
-
 }
 
 int	find_col_to_left(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col, int line)
@@ -25,7 +24,7 @@ int	find_col_to_left(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col, in
 	int col_to_left;
 
 	col_to_left = col + 1;
-	while (col_to_left < BOARD_SIDE_LEN && cases[line][col_to_left].value == 0)
+	while (col_to_left < BOARD_SIDE_LEN -1 && cases[line][col_to_left].value == 0)
 		col_to_left++;
 	if (cases[line][col_to_left].value == 0)
 		return (NOTHING_TO_LEFT);

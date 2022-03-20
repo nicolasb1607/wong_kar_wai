@@ -2,7 +2,7 @@
 
 void	do_fusion_right(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int line)
 {
-	int col = BOARD_SIDE_LEN;
+	int col = BOARD_SIDE_LEN - 1;
 	int curcol;
 	
 	while (col > 0)
@@ -33,7 +33,7 @@ int	find_col_to_right(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col, i
 
 void	reorganize_right(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int line)
 {
-	int col = BOARD_SIDE_LEN;
+	int col = BOARD_SIDE_LEN - 1;
 	int col_to_right = -1;
 
 	while (col > 0)
@@ -57,8 +57,17 @@ void	right_move(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN])
 	line = 0;
 	while (line < BOARD_SIDE_LEN)
 	{
+
 		do_fusion_right(cases, line);
+		
+//		printf("AFTER FUSION\n");
+//		print_tab(cases);
+
 		reorganize_right(cases, line);
+
+//		printf("AFTER reorganize\n");
+//		print_tab(cases);
+
 		line++;
 	}
 }
