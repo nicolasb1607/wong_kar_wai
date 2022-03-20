@@ -6,20 +6,11 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 11:28:52 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/03/20 17:48:24 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/03/20 19:47:05 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "2048.h"
-
-void print_centered(WINDOW *win, int start_row, char *str)
-{
-	int center_col = win->_maxx / 2;
-	int half_length = strlen(str) / 2;
-	int adjusted_col = center_col - half_length;
-
-	mvwprintw(win, start_row, adjusted_col, str);
-}
 
 void print_tab(t_window tab[4][4])
 {
@@ -34,7 +25,6 @@ void print_tab(t_window tab[4][4])
 	
 }
 
-
 int main(void)
 {
 	WINDOW *init_2048;
@@ -45,24 +35,22 @@ int main(void)
 	if (!initscr())
 		exit(1);
 	curs_set(FALSE);
-	
+	init_2048 = newwin(LINES, COLS, 0, 0);
+	init_board(cases, init_2048);
 	while (1)
 	{
-		init_2048 = newwin(LINES, COLS, 0, 0);
-//		keypad(init_2048, TRUE);
-		wrefresh(init_2048);
-//		key_pressed = wgetch(init_2048);
-//		if (key_pressed)
-//			printf("key_pressed = %d\n", key_pressed);
+		keypad(init_2048, true);
 		if (terminal_size_is_ok(LINES, COLS))
 		{
-			init_board(cases, init_2048);
+			init_2048 = newwin(LINES, COLS, 0, 0);
+			wrefresh(init_2048);
 			display_board(cases);
 		}
 		else
 		{
 			display_size_error();
 		}
+		//key_pressed = getch();
 		sleep(100);
 	}
 
@@ -70,3 +58,92 @@ int main(void)
 
 	return 0;
 }
+
+
+
+// int main(void)
+// {
+// 	t_window tab[4][4];
+// 	//t_windows tab[4][4] = {{0, 2 ,0 ,0},{0, 0 ,0 ,0}, {4, 0, 0, 0}, {0, 0, 0, 0}};
+
+// 	tab[0][0].value = 0;
+// 	tab[0][1].value = 0;
+// 	tab[0][2].value = 0;
+// 	tab[0][3].value = 0;
+
+// 	tab[1][0].value = 0;
+// 	tab[1][1].value = 0;
+// 	tab[1][2].value = 0;
+// 	tab[1][3].value = 0;
+
+// 	tab[2][0].value = 0;
+// 	tab[2][1].value = 0;
+// 	tab[2][2].value = 0;
+// 	tab[2][3].value = 0;
+
+// 	tab[3][0].value = 0;
+// 	tab[3][1].value = 0;
+// 	tab[3][2].value = 0;
+// 	tab[3][3].value = 0;
+
+
+// 	srand(time(NULL));
+// 	add_tile(tab);
+// 	usleep(30);
+// 	add_tile(tab);
+// 	printf("ORIGINAL:\n");
+// 	print_tab(tab);
+// 	printf("---------------------------------------------\n");
+/*
+	printf("MOVE_RIGHT:\n");
+	move_tiles(tab, MOVE_RIGHT);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+	
+	printf("MOVE_LEFT:\n");
+	move_tiles(tab, MOVE_LEFT);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+
+	printf("MOVE LEFT:\n");
+	move_tiles(tab, MOVE_LEFT);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+
+	printf("MOVE_UP:\n");
+	move_tiles(tab, MOVE_UP);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+	
+	printf("MOVE_UP:\n");
+	move_tiles(tab, MOVE_UP);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+
+	printf("MOVE_DOWN:\n");
+	move_tiles(tab, MOVE_DOWN);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+	
+	printf("MOVE_RIGHT:\n");
+	move_tiles(tab, MOVE_RIGHT);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+	
+	printf("MOVE_RIGHT:\n");
+	move_tiles(tab, MOVE_RIGHT);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+	
+	printf("MOVE_UP:\n");
+	move_tiles(tab, MOVE_UP);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+
+	printf("MOVE_LEFT:\n");
+	move_tiles(tab, MOVE_LEFT);
+	print_tab(tab);
+	printf("---------------------------------------------\n");
+
+}
+*/

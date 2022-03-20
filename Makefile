@@ -4,6 +4,7 @@ INCLUDES = includes/
 EXEC = 2048
 SRCS = ./main.c \
 	./srcs/init.c \
+	./srcs/ft_itoa.c \
 	./srcs/add_random_title.c \
 	./srcs/check_end_game.c \
 	./srcs/check_move/check_down_move.c \

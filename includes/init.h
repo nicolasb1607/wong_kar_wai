@@ -8,5 +8,6 @@ WINDOW	*create_subwin(WINDOW *init, int height, int width);
 void	init_board(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], WINDOW *init);
 void	display_board(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN]);
 void	display_size_error(void);
-
+void 	print_centered(WINDOW *win, int start_row, char *str);
+char	*ft_itoa(int n);
 #endif

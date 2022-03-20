@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nburat-d <nburat-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 20:20:03 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/03/19 21:05:16 by nburat-d         ###   ########.fr       */
+/*   Updated: 2022/03/20 19:49:33 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
+
+void print_centered(WINDOW *win, int start_row, char *str)
+{
+	int center_col = win->_maxx / 2;
+	int half_length = strlen(str) / 2;
+	int adjusted_col = center_col - half_length;
+
+	mvwprintw(win, start_row, adjusted_col, str);
+}
 
 int terminal_size_is_ok(int terminal_lines, int terminal_cols)
 {
@@ -51,11 +60,14 @@ void init_board(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], WINDOW *init)
 		width = 0;
 		while (width < BOARD_SIDE_LEN)
 		{
+			cases[height][width].value = 0;
 			cases[height][width].ptr = create_subwin(init, height, width);
 			width++;
 		}
 		height++;
 	}
+	add_tile(cases);
+	add_tile(cases);
 }
 
 void	display_board(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN])
@@ -68,6 +80,8 @@ void	display_board(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN])
 		width = 0;
 		while (width < BOARD_SIDE_LEN)
 		{
+			if (cases[height][width].value != 0)
+				print_centered(cases[height][width].ptr, height, ft_itoa(cases[height][width].value));
 			wrefresh(cases[height][width].ptr);
 			width++;
 		}
