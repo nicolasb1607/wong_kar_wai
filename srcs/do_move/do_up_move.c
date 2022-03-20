@@ -6,12 +6,13 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:36:39 by rpottier          #+#    #+#             */
-/*   Updated: 2022/03/20 17:17:10 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:36:18 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "do_move.h"
 #include "2048.h"
+
 void	up_move(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN])
 {
 	int col;
@@ -62,8 +63,7 @@ void	reorganize_up(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col)
 {
 	int line;
 	int line_to_up;
-	
-	printf("col = %d\n", col);
+
 	line = 0;
 	line_to_up = NOTHING_TO_UP;
 	while (line < BOARD_SIDE_LEN - 1)
@@ -76,6 +76,6 @@ void	reorganize_up(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col)
 			cases[line_to_up][col].value = 0;
             line_to_up = NOTHING_TO_UP;
 		}
-		line ++;
+		line++;
 	}
 }

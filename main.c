@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 11:28:52 by nburat-d          #+#    #+#             */
-/*   Updated: 2022/03/20 17:19:31 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:48:24 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,61 +34,26 @@ void print_tab(t_window tab[4][4])
 	
 }
 
-int main(void)
-{
-	t_window tab[4][4];
-	//t_windows tab[4][4] = {{0, 2 ,0 ,0},{0, 0 ,0 ,0}, {4, 0, 0, 0}, {0, 0, 0, 0}};
-	tab[0][0].value = 2;
-	tab[0][1].value = 2;
-	tab[0][2].value = 4;
-	tab[0][3].value = 2;
 
-	tab[1][0].value = 2;
-	tab[1][1].value = 2;
-	tab[1][2].value = 0;
-	tab[1][3].value = 0;
-
-	tab[2][0].value = 0;
-	tab[2][1].value = 0;
-	tab[2][2].value = 0;
-	tab[2][3].value = 0;
-
-	tab[3][0].value = 0;
-	tab[3][1].value = 0;
-	tab[3][2].value = 0;
-	tab[3][3].value = 0;
-
-	print_tab(tab);
-	printf("---------------------------------------------\n");
-	move_tiles(tab, MOVE_RIGHT);
-	print_tab(tab);
-	 printf("---------------------------------------------\n");
-	 move_tiles(tab, MOVE_RIGHT);
-	 print_tab(tab);
-	 printf("---------------------------------------------\n");	
-
-	
-/*	print_tab(tab);
-	move_tiles(tab, MOVE_UP);
-	printf("---------------------------------------------\n");
-	print_tab(tab);
-*/
-}
-
-/*
 int main(void)
 {
 	WINDOW *init_2048;
 	t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN];
+//	int key_pressed;
 
+//	key_pressed = 0;
 	if (!initscr())
 		exit(1);
-	curs_set(false);
+	curs_set(FALSE);
+	
 	while (1)
 	{
 		init_2048 = newwin(LINES, COLS, 0, 0);
-		//		wprintw(init_2048, "LINES = %d COLS = %d\n", LINES, COLS);
+//		keypad(init_2048, TRUE);
 		wrefresh(init_2048);
+//		key_pressed = wgetch(init_2048);
+//		if (key_pressed)
+//			printf("key_pressed = %d\n", key_pressed);
 		if (terminal_size_is_ok(LINES, COLS))
 		{
 			init_board(cases, init_2048);
@@ -105,4 +70,3 @@ int main(void)
 
 	return 0;
 }
-*/

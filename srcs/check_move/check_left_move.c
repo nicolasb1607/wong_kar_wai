@@ -8,7 +8,7 @@ int	check_fusion_left(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int line)
 	while (col < BOARD_SIDE_LEN - 1)
 	{
 		curcol= col + 1;
-        while (cases[line][curcol].value == 0)
+        while (cases[line][curcol].value == 0 && curcol < BOARD_SIDE_LEN - 1)
             curcol++;
 		if (cases[line][col].value == cases[line][curcol].value)
 			return (ALLOWED_MOVE);

@@ -2,13 +2,13 @@
 
 int	check_fusion_right(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int line)
 {
-	int col = BOARD_SIDE_LEN;
+	int col = BOARD_SIDE_LEN - 1;
 	int curcol;
 	
 	while (col > 0)
 	{
 		curcol= col - 1;
-        while (cases[line][curcol].value == 0)
+        while (cases[line][curcol].value == 0 && curcol > 0)
             curcol--;
 		if (cases[line][col].value == cases[line][curcol].value)
 			return (ALLOWED_MOVE);
@@ -19,7 +19,7 @@ int	check_fusion_right(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int line)
 
 int	check_reorganize_right(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int line)
 {
-	int col = BOARD_SIDE_LEN;
+	int col = BOARD_SIDE_LEN - 1;
 	int col_to_right = -1;
 
 	while (col > 0)

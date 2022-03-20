@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 14:52:15 by rpottier          #+#    #+#             */
-/*   Updated: 2022/03/20 16:26:04 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:37:04 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_fusion_down(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col)
 	while (line > 0)
 	{
 		curline = line - 1;
-        while (cases[curline][col].value == 0)
+        while (cases[curline][col].value == 0 && curline >= 0)
             curline--;
 		if (cases[line][col].value == cases[curline][col].value)
 			return (ALLOWED_MOVE);

@@ -6,7 +6,7 @@
 /*   By: rpottier <rpottier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:46:31 by rpottier          #+#    #+#             */
-/*   Updated: 2022/03/20 16:26:41 by rpottier         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:36:30 by rpottier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	check_fusion_up(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col)
 	while (line < BOARD_SIDE_LEN - 1)
 	{
 		curline = line + 1;
-        while (cases[curline][col].value == 0)
+        while (cases[curline][col].value == 0 && curline < BOARD_SIDE_LEN - 1)
             curline++;
 		if (cases[line][col].value == cases[curline][col].value)
             return (ALLOWED_MOVE);
-		line ++;
+		line++;
 	}
     return (FORBIDDEN_MOVE);
 }
@@ -57,7 +57,7 @@ int	check_reorganize_up(t_window cases[BOARD_SIDE_LEN][BOARD_SIDE_LEN], int col)
 			line_to_up = find_line_to_up(cases, col, line);
 		if (line_to_up != NOTHING_TO_UP)
 			return (ALLOWED_MOVE);
-		line ++;
+		line++;
 	}
     return (FORBIDDEN_MOVE);
 }
